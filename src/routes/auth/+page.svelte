@@ -9,16 +9,19 @@
 	import { signUpFormSchema, type SignUpFormSchema } from './schema';
 	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
-	export let data;
-	export let form;
-	function test() {
-		console.log(localStorage.getItem('user'))
 
-	}
+	export let data;
 	const signUpForm = superForm(data.signUpForm, {
-		validators: zodClient(signUpFormSchema)
+		validators: zodClient(signUpFormSchema),
+		onResult(el) {
+			console.log('123')
+		},
+		onError(el) {
+			console.log('345')
+		}
 	});
 	const { form: signUpFormData, enhance } = signUpForm;
+	let formAction = '/register'
 </script>
 
 <div class="flex h-screen items-center justify-center">
@@ -67,18 +70,17 @@
 						<Form.Field form={signUpForm} name="faction">
 							<Form.Control let:attrs>
 								<Form.Label>Faction</Form.Label>
-								<Input {...attrs} bind:value={$signUpFormData.faction} />
 								<DropdownMenu.Root>
-									<DropdownMenu.Trigger asChild let:builder>
-									  <Button variant="outline" builders={[builder]}>Open</Button>
+									<DropdownMenu.Trigger asChild let:builder class="w-full">
+									  <Button variant="outline" builders={[builder]} class="w-full">{$signUpFormData.faction}</Button>
 									</DropdownMenu.Trigger>
-									<DropdownMenu.Content class="w-56">
-									  <DropdownMenu.Label>Panel Position</DropdownMenu.Label>
+									<DropdownMenu.Content class="w-[350px]">
+									  <DropdownMenu.Label>Choose your starting faction</DropdownMenu.Label>
 									  <DropdownMenu.Separator />
 									  <DropdownMenu.RadioGroup bind:value={$signUpFormData.faction}>
-										<DropdownMenu.RadioItem value="top">Top</DropdownMenu.RadioItem>
-										<DropdownMenu.RadioItem value="bottom">Bottom</DropdownMenu.RadioItem>
-										<DropdownMenu.RadioItem value="right">Right</DropdownMenu.RadioItem>
+										{#each data.factions as faction}
+											<DropdownMenu.RadioItem value={faction.symbol}>{faction.name}</DropdownMenu.RadioItem>
+										{/each}
 									  </DropdownMenu.RadioGroup>
 									</DropdownMenu.Content>
 								  </DropdownMenu.Root>
@@ -89,7 +91,7 @@
 
 				</Card.Content>
 				<Card.Footer>
-					<Button class="cursor-pointer" type='submit'>Sign Up</Button>
+					<Button type='submit'>Sign Up</Button>
 				</Card.Footer>
 				</form>
 			</Card.Root>

@@ -10,8 +10,8 @@ import { fail } from 'sveltekit-superforms';
 export const load: PageServerLoad = async () => {
 	const factionsApi = new FactionsApi(config);
 	const res = await factionsApi.getFactions();
-	const factions = await res.data;
-
+	let factions = await res.data;
+	factions = factions.filter(faction => faction.isRecruiting).sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
 	return {
 		factions: factions,
 		signUpForm: await superValidate(zod(signUpFormSchema))
@@ -26,7 +26,4 @@ export const actions : Actions = {
 		}
 		return {signUpForm}
     },
-	login: async() => {
-
-	}
 }
