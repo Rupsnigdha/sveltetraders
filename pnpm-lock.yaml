@@ -26,6 +26,9 @@ importers:
       openapi-fetch:
         specifier: ^0.10.2
         version: 0.10.2
+      svelte-sonner:
+        specifier: ^0.3.27
+        version: 0.3.27(svelte@4.2.18)
       sveltekit-superforms:
         specifier: ^2.16.0
         version: 2.16.0(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.3))(svelte@4.2.18)(vite@5.3.3))(svelte@4.2.18)
@@ -35,6 +38,9 @@ importers:
       tailwind-variants:
         specifier: ^0.2.1
         version: 0.2.1(tailwindcss@3.4.4)
+      vaul-svelte:
+        specifier: ^0.3.2
+        version: 0.3.2(svelte@4.2.18)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -1894,6 +1900,11 @@ packages:
       typescript:
         optional: true
 
+  svelte-sonner@0.3.27:
+    resolution: {integrity: sha512-+PvbuePNTyTNCepCWqKcFeu+Lo27yYuwfSc7zJvrWjCRMJrWAmccPg3j7jO1W13QoN3TySXU5Trb956VBQiM5Q==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
+
   svelte@4.2.18:
     resolution: {integrity: sha512-d0FdzYIiAePqRJEb90WlJDkjUEx42xhivxN8muUBmfZnP+tzUgz12DJ2hRJi8sIHCME7jeK1PTMgKPSfTd8JrA==}
     engines: {node: '>=16'}
@@ -2020,6 +2031,11 @@ packages:
   validator@13.12.0:
     resolution: {integrity: sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==}
     engines: {node: '>= 0.10'}
+
+  vaul-svelte@0.3.2:
+    resolution: {integrity: sha512-X4OGWttSTVUl417qGDsSFgOvIx24DoiMRY/jaP9z0v9FL8LQQJ0RQ1ZM0QpdyQPRlNd24ewjNQHh5EgYDtfNpw==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0-next.1
 
   vite@5.3.3:
     resolution: {integrity: sha512-NPQdeCU0Dv2z5fu+ULotpuq5yfCS1BzKUIPhNbP3YBfAMGJXbt2nS+sbTFu+qchaqWTD+H3JK++nRwr6XIcp6A==}
@@ -3764,6 +3780,10 @@ snapshots:
       postcss-load-config: 4.0.2(postcss@8.4.39)
       typescript: 5.5.3
 
+  svelte-sonner@0.3.27(svelte@4.2.18):
+    dependencies:
+      svelte: 4.2.18
+
   svelte@4.2.18:
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -3927,6 +3947,11 @@ snapshots:
 
   validator@13.12.0:
     optional: true
+
+  vaul-svelte@0.3.2(svelte@4.2.18):
+    dependencies:
+      bits-ui: 0.21.12(svelte@4.2.18)
+      svelte: 4.2.18
 
   vite@5.3.3:
     dependencies:

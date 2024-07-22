@@ -1,5 +1,5 @@
-import { writable } from 'svelte/store';
 import { Configuration } from './api';
+import { token } from './config';
 
 // export const configStore = () => {
 //     const config = writable<Configuration>()
@@ -10,3 +10,4 @@ import { Configuration } from './api';
 // }
 
 export const config = new Configuration();
+export const configWithToken = new Configuration({ accessToken: token });

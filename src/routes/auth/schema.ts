@@ -7,3 +7,9 @@ export const signUpFormSchema = z.object({
 });
 
 export type SignUpFormSchema = typeof signUpFormSchema;
+
+export const loginFormSchema = z.object({
+	token: z.string()
+});
+
+export type LoginFormSchema = typeof loginFormSchema;
