@@ -1,5 +1,4 @@
 <script lang="ts">
-	export let data;
 	import Package2 from 'lucide-svelte/icons/package-2';
 	import CircleUser from 'lucide-svelte/icons/circle-user';
 	import Menu from 'lucide-svelte/icons/menu';
@@ -20,12 +19,12 @@
 				<Package2 class="h-6 w-6" />
 				<span class="sr-only">Svelte Traders</span>
 			</a>
-			<a href="##" class="text-foreground transition-colors hover:text-foreground"> Dashboard </a>
+			<a href="/dashboard" class="text-foreground transition-colors hover:text-foreground"> Dashboard </a>
 			<a href="##" class="text-muted-foreground transition-colors hover:text-foreground"> Ships </a>
-			<a href="##" class="text-muted-foreground transition-colors hover:text-foreground">
+			<a href="/dashboard/contracts" class="text-muted-foreground transition-colors hover:text-foreground">
 				Contracts
 			</a>
-			<a href="##" class="text-muted-foreground transition-colors hover:text-foreground">
+			<a href="/dashboard/factions" class="text-muted-foreground transition-colors hover:text-foreground">
 				Factions
 			</a>
 		</nav>
@@ -69,7 +68,7 @@
 			</DropdownMenu.Root>
 		</div>
 	</header>
-	<main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+	<main class="p-4 md:p-8">
 		<slot />
 	</main>
 </div>

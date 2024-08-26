@@ -42,7 +42,6 @@
 	};
 	const handleTokenCopy = () => {
 		navigator.clipboard.writeText(accessToken);
-		console.log('Copied to clipboard');
 		toast.success('Copied to clipboard', {
 			description: 'Redirecting you to the dashboard'
 		});
